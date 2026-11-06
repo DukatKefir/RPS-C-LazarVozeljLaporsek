@@ -1,0 +1,11 @@
+DirectoryIndex index.php
+Options -Indexes
+
+<FilesMatch "(^\.|\.(sql|sqlite|sqlite-wal|sqlite-shm|log|ini|bak|md)$)">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^download(?:/|$) api.php?action=download [END,QSD]
+</IfModule>
